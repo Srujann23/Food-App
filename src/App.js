@@ -6,9 +6,9 @@ import {
   Route
 } from "react-router-dom";
 import Login from './screens/Login';
-import '../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
+import 'C:\\Users\\Owner\\OneDrive\\Desktop\\MERN\\Food-Delivery\\mernapp\\node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
 // import '../node_modules/bootstrap-dark-5/dist/js/bootstrap.bundle';
-import '../node_modules/bootstrap/js/dist/carousel.js';
+import 'C:\\Users\\Owner\\OneDrive\\Desktop\\MERN\\Food-Delivery\\mernapp\\node_modules/bootstrap/js/dist/carousel.js';
 
 function App() {
   return (
