@@ -6,9 +6,9 @@ import {
   Route
 } from "react-router-dom";
 import Login from './screens/Login';
-import 'C:\\Users\\Owner\\OneDrive\\Desktop\\MERN\\Food-Delivery\\mernapp\\node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
-// import '../node_modules/bootstrap-dark-5/dist/js/bootstrap.bundle';
-import 'C:\\Users\\Owner\\OneDrive\\Desktop\\MERN\\Food-Delivery\\mernapp\\node_modules/bootstrap/js/dist/carousel.js';
+import Signup from './screens/Signup';
+import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home/>}/>
           <Route exact path='/login' element={<Login/>}/>
+          <Route exact path='/createuser' element={<Signup/>}/>
         </Routes>
       </div>
     </Router>
