@@ -23,6 +23,8 @@ export default function Login() {
         alert("Enter Valid Credentials!");
       }
       else {
+        localStorage.setItem("authToken",data.authToken);
+        console.log(localStorage.getItem("authToken"));
         navigate("/");
       }
     } catch (error) {

@@ -4,7 +4,7 @@ export default function Carousel() {
     return (
         <div>
             <div>
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" style={{objectFit:"contain !important"}}>
+                <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{objectFit:"contain !important"}}>
                         <div className="carousel-inner" id="carousel">
                             <div className="carousel-caption" style={{zIndex:"10"}}>
                                 <form className="d-flex">
@@ -12,25 +12,25 @@ export default function Carousel() {
                                         <button className="btn btn-outline-success" type="submit">Search</button>
                                 </form>
                         </div>
-                        <div class="carousel-item active">
-                            <img src="https://source.unsplash.com/random/900x700/?pizza" class="d-block w-100" alt="Pizza" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
+                        <div className="carousel-item active">
+                            <img src="https://source.unsplash.com/random/900x700/?pizza" className="d-block w-100" alt="Pizza" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
                         </div>
-                        <div class="carousel-item">
-                            <img src="https://source.unsplash.com/random/900x700/?burger" class="d-block w-100" alt="Burger" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
+                        <div className="carousel-item">
+                            <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100" alt="Burger" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
                         </div>
-                        <div class="carousel-item">
-                            <img src="https://source.unsplash.com/random/900x700/?pasta" class="d-block w-100" alt="Pasta" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
+                        <div className="carousel-item">
+                            <img src="https://source.unsplash.com/random/900x700/?pasta" className="d-block w-100" alt="Pasta" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
                     </button>
-                </div>
+                </div>Name
             </div>
         </div>
     )
