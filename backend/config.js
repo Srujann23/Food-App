@@ -20,33 +20,62 @@ const mongoDB = async () => {
         await mongoose.connect(MONGODB_URI);
         // console.log(MONGODB_URI);
         console.log("Connected to database");
-         const db = mongoose.connection.db;
-        const fetched_data = await db.collection("food_items");
-        // console.log(fetched_data);
-        // console.log("Collection Name:", fetched_data.collectionName);
-        const data = await fetched_data.find({}).toArray();
-        if (data.length === 0) {
-            console.log("No data found.");
-          } else {
-            // console.log(data);
-          }
+        const fetched_data = mongoose.connection.db.collection("food_items");
+        const food_items = await fetched_data.find({}).toArray()
+        const fetched_category = mongoose.connection.db.collection("food_category");
+        const foodCategory = await fetched_category.find({}).toArray();
+        if (food_items.length === 0) {
+            console.log("No food items found.");
+        } else {
+            global.food_items = food_items;
+            console.log("Food items fetched:", food_items.length);
+        }
+
+        if (foodCategory.length === 0) {
+            console.log("No food categories found.");
+        } else {
+            global.foodCategory = foodCategory;
+            console.log("Food categories fetched:", foodCategory.length);
+        }
+
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
         process.exit(1);
     }
 };
 
-/*
-const mongoDB = async () => {
-    await mongoose.connect(MONGODB_URI);
-console.log('Connected');
-const foodItems = mongoose.connection.collection('food_items')
-try {
-    const data = await foodItems.find({}).toArray();
-    console.log(data);
-} catch (error) {
-    console.error(error);
-}
-    };
-*/
+// const mongoDB1 = async () => {
+//     try {
+//         mongoose.set('debug', true);
+//         await mongoose.connect(MONGODB_URI);
+//         // console.log(MONGODB_URI);
+//         console.log("Connected to database");
+//         const fetched_data = mongoose.connection.db.collection("food_items");
+//         fetched_data.find({}).toArray(
+//             async function (err, data) {
+//                 const foodCategory = await mongoose.connection.db("foodCategory");
+//                 foodCategory.find({}).toArray(function (err, catData) {
+
+//                     if (err) console.log(err)
+//                     else {
+//                         global.food_items = data;
+//                         global.foodCategory = catData;
+//                         // console.log(global.food_items);
+//                     }
+//                 })
+//                 if (err) console.log(err)
+//                 else {
+//                     global.food_items = data;
+//                     // console.log(global.food_items);
+//                 }
+//             }
+//         )
+
+
+//     } catch (error) {
+//         console.error("Error connecting to MongoDB:", error);
+//         process.exit(1);
+//     }
+// };
+
 module.exports = { mongoDB };

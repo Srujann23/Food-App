@@ -3,6 +3,7 @@ const app = express()
 const port = 5000
 const createUserRouter = require('./Routes/CreateUser.js');
 const LoginUserRouter = require('./Routes/LoginUser.js');
+const DisplayData = require('./Routes/DisplayData.js');
 const { mongoDB } = require('./config')
 // const { cors } = require('cors');
 
@@ -27,10 +28,20 @@ app.use((req, res, next) => {
 });
 
 
-mongoDB();
+const startServer = async () => {
+  await mongoDB();
+
+  if (global.food_items && global.foodCategory) {
+      console.log("Global food items and categories are populated");
+  } else {
+      console.error("Failed to populate global food items or categories");
+      // process.exit(1); 
+  }
+}
 app.use(express.json());
 app.use('/api', createUserRouter);
 app.use('/api', LoginUserRouter);
+app.use('/api', DisplayData);
 
 app.get('/', (req, res) => {
   res.send('Hello Worlds!')
@@ -40,3 +51,5 @@ app.get('/', (req, res) => {
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on http://0.0.0.0:${port}`);
 });
+
+startServer();
