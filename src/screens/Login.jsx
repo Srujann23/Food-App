@@ -15,6 +15,9 @@ export default function Login() {
         },
         body: JSON.stringify({ email: credentials.email, password: credentials.password })
       });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
 
       console.log(data);

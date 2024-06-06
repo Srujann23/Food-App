@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 5000
 const createUserRouter = require('./Routes/CreateUser.js');
+const LoginUserRouter = require('./Routes/LoginUser.js');
 const { mongoDB } = require('./config')
 // const { cors } = require('cors');
 
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 mongoDB();
 app.use(express.json());
 app.use('/api', createUserRouter);
+app.use('/api', LoginUserRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello Worlds!')
