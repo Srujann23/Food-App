@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 // const jwt = require("jsonwebtoken");
-// const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 // const dotenv = require('dotenv');
 // const path = require('path');
 // dotenv.config({ path: path.resolve(__dirname, '../../.env') });

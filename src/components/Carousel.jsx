@@ -13,7 +13,8 @@ export default function Carousel() {
                                 </form>
                         </div>
                         <div className="carousel-item active">
-                            <img src="https://source.unsplash.com/random/900x700/?pizza" className="d-block w-100" alt="Pizza" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
+                            {/* <img src="https://source.unsplash.com/random/900x700/?pizza" className="d-block w-100" alt="Pizza" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} /> */}
+                            <img src="https://unsplash.com/photos/pizza-with-tomato-and-green-leaves-on-white-ceramic-plate-Oxb84ENcFfU" className="d-block w-100" alt="Pizza" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
                         </div>
                         <div className="carousel-item">
                             <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100" alt="Burger" style={{ height: '500px', width: '100px',filter:"brightness(30%)" }} />
