@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-
-
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
-    const [credentials, setcredentials] = useState({ name: "", email: "", password: "", geolocation: "" })
+    const [credentials, setCredentials] = useState({ name: "", email: "", password: "", location: "" });
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -13,7 +12,7 @@ export default function Signup() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, location: credentials.geolocation })
+                body: JSON.stringify(credentials)
             });
             const data = await response.json();
 
@@ -21,21 +20,32 @@ export default function Signup() {
 
             if (!data.success) {
                 alert("Enter Valid Credentials!");
-            }
-            else{
+            } else {
                 alert("SignUp Successful! Go to Login Page!")
             }
         } catch (error) {
             console.error('Error:', error);
         }
     }
+
+    const getLocation = async () => {
+        try {
+            const response = await fetch('http://ip-api.com/json/');
+            const data = await response.json();
+            const location = `${data.city}, ${data.regionName}, ${data.country}`;
+            setCredentials({ ...credentials, location });
+        } catch (error) {
+            console.error('Error fetching location:', error);
+        }
+    };
+
     const onChange = (event) => {
-        setcredentials({ ...credentials, [event.target.name]: event.target.value })
-    }
+        setCredentials({ ...credentials, [event.target.name]: event.target.value });
+    };
+
     return (
         <div>
             <div className="container mt-3">
-
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>
@@ -52,12 +62,15 @@ export default function Signup() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleInputAddress1" className="form-label">Location</label>
-                        <input type="text" className="form-control" name='geolocation' value={credentials.geolocation} onChange={onChange} id="exampleInputAddress1" />
+                        <div className="input-group">
+                            <input type="text" className="form-control" name='location' value={credentials.location} onChange={onChange} id="exampleInputAddress1" />
+                            <button className="btn btn-outline-secondary" type="button" onClick={getLocation}>Get Location</button>
+                        </div>
                     </div>
                     <button type="submit" className="m-3 btn btn-success">Submit</button>
                     <Link to="/login" className='m-3 btn btn-primary'>Already a User?</Link>
                 </form>
             </div>
         </div>
-    )
+    );
 }
