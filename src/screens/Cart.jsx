@@ -39,7 +39,7 @@ export default function Cart() {
                 <table className='table table-hover'>
                     <thead className='text-success fs-4'>
                         <tr>
-                            <th sco pe='col'>#</th>
+                            <th scope='col'>#</th>
                             <th scope='col'>Name</th>
                             <th scope='col'>Quantity</th>
                             <th scope='col'>Option</th>

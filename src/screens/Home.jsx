@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 import Card from '../components/Card'
 // import Carousel from '../components/Carousel'
 
@@ -35,7 +33,6 @@ export default function Home() {
 
   return (
     <div>
-      <div><Navbar /></div>
       {/* <div><Carousel /></div> */}
       <div>
         <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{ objectFit: "contain !important" }}>
@@ -92,8 +89,6 @@ export default function Home() {
             }) : <div>Loading categories...</div>
         }
       </div>
-
-      <div><Footer /></div>
     </div>
   )
 }

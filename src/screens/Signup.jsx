@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Navbar from '../components/Navbar';
 
 
 
@@ -23,6 +22,9 @@ export default function Signup() {
             if (!data.success) {
                 alert("Enter Valid Credentials!");
             }
+            else{
+                alert("SignUp Successful! Go to Login Page!")
+            }
         } catch (error) {
             console.error('Error:', error);
         }
@@ -32,7 +34,6 @@ export default function Signup() {
     }
     return (
         <div>
-            <div><Navbar /></div>
             <div className="container mt-3">
 
                 <form onSubmit={handleSubmit}>
