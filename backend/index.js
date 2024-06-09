@@ -4,6 +4,7 @@ const port = 5000
 const createUserRouter = require('./Routes/CreateUser.js');
 const LoginUserRouter = require('./Routes/LoginUser.js');
 const DisplayData = require('./Routes/DisplayData.js');
+const OrderData = require('./Routes/OrderData.js');
 const { mongoDB } = require('./config')
 // const { cors } = require('cors');
 
@@ -42,9 +43,10 @@ app.use(express.json());
 app.use('/api', createUserRouter);
 app.use('/api', LoginUserRouter);
 app.use('/api', DisplayData);
+app.use('/api', OrderData);
 
 app.get('/', (req, res) => {
-  res.send('Hello Worlds!')
+  res.send('Server Running....!')
 })
 
 

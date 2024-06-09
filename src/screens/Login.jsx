@@ -16,7 +16,18 @@ export default function Login() {
         body: JSON.stringify({ email: credentials.email, password: credentials.password })
       });
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        // Log response status for debugging
+        console.error(`HTTP error! status: ${response.status}`);
+        if (response.status === 401) {
+          alert("Invalid credentials. Please try again.");
+        } else if (response.status === 400) {
+          const errorData = await response.json();
+          console.error('Response error data:', errorData);
+          alert(`Bad Request: ${errorData.message}`);
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return;
       }
       const data = await response.json();
 
@@ -26,6 +37,7 @@ export default function Login() {
         alert("Enter Valid Credentials!");
       }
       else {
+        localStorage.setItem("userEmail",credentials.email);
         localStorage.setItem("authToken",data.authToken);
         console.log(localStorage.getItem("authToken"));
         navigate("/");

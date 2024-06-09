@@ -47,13 +47,13 @@ export default function Home() {
               </div>
             </div>
             <div className="carousel-item active">
-              <img src="https://source.unsplash.com/random/900x700/?pizza" className="d-block w-100" alt="Pizza" style={{ height: '500px', width: '100px', filter: "brightness(30%)" }} />
+              <img src="https://foodish-api.com/images/pizza/pizza43.jpg" className="d-block w-100" alt="Pizza" style={{ height: '500px', width: '100px', filter: "brightness(30%)" }} />
             </div>
             <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/900x700/?burger" className="d-block w-100" alt="Burger" style={{ height: '500px', width: '100px', filter: "brightness(30%)" }} />
+              <img src="https://foodish-api.com/images/burger/burger17.jpg" className="d-block w-100" alt="Burger" style={{ height: '500px', width: '100px', filter: "brightness(30%)" }} />
             </div>
             <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/900x700/?pasta" className="d-block w-100" alt="Pasta" style={{ height: '500px', width: '100px', filter: "brightness(30%)" }} />
+              <img src="https://foodish-api.com/images/pasta/pasta21.jpg" className="d-block w-100" alt="Pasta" style={{ height: '500px', width: '100px', filter: "brightness(30%)" }} />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
